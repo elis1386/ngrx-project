@@ -1,0 +1,35 @@
+<ng-container *ngIf="data$ | async as data">
+  <ngx-loading *ngIf="data.isLoading"></ngx-loading>
+  <ngx-error-message
+    *ngIf="data.error"
+    [message]="data.error"
+  ></ngx-error-message>
+  <div *ngIf="data.feed">
+    <div class="article-preview" *ngFor="let article of data.feed.articles">
+      <div class="article-meta">
+        <a [routerLink]="['/profiles', article.author.username]">
+          <img [src]="article.author.image" alt="" />
+        </a>
+      </div>
+      <div class="info">
+        <a [routerLink]="['/profiles', article.author.username]">
+          {{ article.author.username }}
+        </a>
+        <span class="date">{{ article.createdAt.slice(0, 10) }}</span>
+      </div>
+      <div class="pull-xs-right">Add to favorite</div>
+      <a [routerLink]="['/articles', article.slug]" class="preview-link">
+        <h4>{{ article.title }}</h4>
+        <p>{{ article.description }}</p>
+        <span>Read more...</span>
+        <ngx-tag-list [tags]="article.tagList"></ngx-tag-list>
+      </a>
+    </div>
+    <ngx-pagination
+      [total]="data.feed.articlesCount"
+      [limit]="limit"
+      [url]="baseUrl"
+      [currentPage]="currentPage"
+    ></ngx-pagination>
+  </div>
+</ng-container>
