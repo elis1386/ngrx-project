@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core'
 
 @Injectable({
   providedIn: 'root',
@@ -6,20 +6,19 @@ import { Injectable } from '@angular/core';
 export class PersistanceService {
   set(key: string, data: unknown): void {
     try {
-      localStorage.setItem(key, JSON.stringify(data));
-    } catch (error) {}
-    console.error('Oops..something went wrong during saving to local storage');
+      localStorage.setItem(key, JSON.stringify(data))
+    } catch (e) {
+      console.error('Error saving to local storage', e)
+    }
   }
 
   get(key: string): unknown {
     try {
-      const localStorageItem = localStorage.getItem(key);
-      return localStorageItem ? JSON.parse(localStorageItem) : null;
-    } catch (error) {
-      console.error(
-        'Oops..something went wrong during getting to local storage'
-      );
-      return null;
+      const localStorageItem = localStorage.getItem(key)
+      return localStorageItem ? JSON.parse(localStorageItem) : null
+    } catch (e) {
+      console.error('Error getting from local storage', e)
+      return null
     }
   }
 }

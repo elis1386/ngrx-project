@@ -24,17 +24,18 @@
               [routerLink]="['/profiles', data.currentUser.username]"
               class="nav-link"
             >
-              <img [src]="data.currentUser.image" alt="" class="user-pic" />
+              <img class="user-pic" [src]="data.currentUser.image" />
               &nbsp; {{ data.currentUser.username }}
             </a>
           </li>
         </ng-container>
         <ng-container *ngIf="data.currentUser === null">
           <li class="nav-item">
-            <a routerLink="/login" class="nav-link">Sign In </a>
+            <a routerLink="/login" class="nav-link"> Sign in </a>
           </li>
+
           <li class="nav-item">
-            <a routerLink="/register" class="nav-link">Sign Up </a>
+            <a routerLink="/register" class="nav-link"> Sign up </a>
           </li>
         </ng-container>
       </ul>

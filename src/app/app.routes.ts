@@ -1,4 +1,4 @@
-import { Route } from '@angular/router';
+import {Route} from '@angular/router'
 
 export const appRoutes: Route[] = [
   {
@@ -14,16 +14,16 @@ export const appRoutes: Route[] = [
   {
     path: '',
     loadChildren: () =>
-      import('src/app/globalFeed/globalFeeds.routes').then((m) => m.routes),
+      import('src/app/globalFeed/globalFeed.routes').then((m) => m.routes),
   },
   {
     path: 'feed',
     loadChildren: () =>
-      import('src/app/yourFeed/yourFeeds.routes').then((m) => m.routes),
+      import('src/app/yourFeed/yourFeed.routes').then((m) => m.routes),
   },
   {
     path: 'tags/:slug',
     loadChildren: () =>
-      import('src/app/tagFeed/tag-feed.routes').then((m) => m.routes),
+      import('src/app/tagFeed/tagFeed.routes').then((m) => m.routes),
   },
-];
+]
