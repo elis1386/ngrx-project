@@ -1,0 +1,14 @@
+<div class="home-page">
+  <ngx-banner></ngx-banner>
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-9">
+        <ngx-feed-toggler [tagName]="tagName"></ngx-feed-toggler>
+        <ngx-feed [apiUrl]="apiUrl"></ngx-feed>
+      </div>
+      <div class="col-md-3">
+        <ngx-popular-tags></ngx-popular-tags>
+      </div>
+    </div>
+  </div>
+</div>
