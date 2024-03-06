@@ -1,0 +1,10 @@
+<ng-container *ngIf="data$ | async as data">
+  <ngx-loading *ngIf="data.isLoading"></ngx-loading>
+  <ngx-article-form
+    *ngIf="data.initialValues"
+    [initialValues]="data.initialValues"
+    [isSubmitting]="data.isSubmitting"
+    [errors]="data.backendErrors"
+    (articleSubmit)="onSubmit($event)"
+  ></ngx-article-form>
+</ng-container>
