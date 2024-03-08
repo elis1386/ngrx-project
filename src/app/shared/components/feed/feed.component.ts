@@ -11,6 +11,7 @@ import {feedActions} from './store/actions'
 import {selectError, selectFeedData, selectIsLoading} from './store/reducers'
 import queryString from 'query-string'
 import {TagListComponent} from '../tagList/tagList.component'
+import { AddToFavoriteComponent } from '../add-to-favorite/add-to-favorite.component'
 
 @Component({
   selector: 'ngx-feed',
@@ -23,6 +24,7 @@ import {TagListComponent} from '../tagList/tagList.component'
     LoadingComponent,
     PaginationComponent,
     TagListComponent,
+    AddToFavoriteComponent
   ],
 })
 export class FeedComponent implements OnInit, OnChanges {
